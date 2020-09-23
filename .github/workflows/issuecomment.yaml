@@ -1,0 +1,11 @@
+name: fork
+on: [issue_comment]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.html_url, '/pull/') && startsWith(github.event.comment.body, '/run-e2e')
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
