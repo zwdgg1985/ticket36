@@ -1,4 +1,4 @@
-name: fork
+name: issuecomment
 on: [issue_comment]
 jobs:
   job1:
